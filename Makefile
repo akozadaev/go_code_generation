@@ -18,6 +18,8 @@ generate:
 	cd jsonenums_example && go generate
 	@echo "3. Генерация easyjson для User..."
 	cd easyjson_example && go generate
+	@echo "4. Генерация мапперов..."
+	cd mapper_example && go generate
 	@echo "Генерация завершена!"
 
 # Генерация через go generate (альтернативный способ)
@@ -37,6 +39,8 @@ run:
 	@cd cmd/easyjson && go run .
 	@echo "\n4. Impl пример:"
 	@cd cmd/impl && go run .
+	@echo "\n5. Mapper пример:"
+	@cd cmd/mapper-demo && go run .
 
 # Запуск тестов
 test:
@@ -52,6 +56,7 @@ clean:
 	find . -name "*_string.go" -delete
 	find . -name "*_jsonenums.go" -delete
 	find . -name "*_easyjson.go" -delete
+	find . -name "*_mapper_gen.go" -delete
 	find . -name "*.log" -delete
 	@echo "Очистка завершена!"
 
